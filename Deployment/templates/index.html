@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API</title>
+    <style>
+        body {
+            background-image: url('/static/3d-render-modern-network-communications-design.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            color: #ffffff;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .upload-form {
+            margin-top: 20px;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        // Function to clear the result after a specified time interval
+        function clearResult() {
+            setTimeout(function() {
+                var resultSection = document.getElementById("result-section");
+                if (resultSection) {
+                    resultSection.parentNode.removeChild(resultSection);
+                }
+            }, 15000); // Clear result after 15 seconds (15000 milliseconds)
+        }
+
+        // Call the clearResult function when the page loads
+        window.onload = clearResult;
+    </script>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Image Classification</h1>
+        <form class="upload-form" method="POST" enctype="multipart/form-data" action="/">
+            <input type="file" name="file" accept=".jpg,.jpeg,.png">
+            <button type="submit">Submit</button>
+        </form>
+        {% if result %}
+        <div id="result-section">
+            <h2>{{ result }}</h2>
+            <img src="{{ image_file }}" width="400">
+        {% endif %}
+    </div>
+</body>
+</html>
+
