@@ -6,10 +6,10 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
 # Load the trained Random Forest model
-model_path = '/home/sagar/Bombay_Software/Deployment/models/best_random_forest_modelx_new.pkl'
+model_path = 'Deployment/models/best_random_forest_modelx_new.pkl'
 model = load_model(model_path)
 
-decoder_path = '/home/sagar/Bombay_Software/Deployment/models/label_encoder_newx.pkl'
+decoder_path = 'Deployment/models/label_encoder_newx.pkl'
 label_encoder = load_decoder(decoder_path)
 
 
